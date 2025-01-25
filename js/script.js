@@ -1,3 +1,19 @@
+$(function(){
+  // フェードインアニメーション
+  function fadeInOnScroll() {
+    $('.fade-in').each(function() {
+      var elementTop = $(this).offset().top;
+      var windowBottom = $(window).scrollTop() + $(window).height();
+      if (elementTop < windowBottom) {
+        $(this).addClass('visible');
+      }
+    });
+  }
+
+  $(window).on('scroll', fadeInOnScroll);
+  fadeInOnScroll(); // 初期ロード時にもチェック
+});
+
 //ローディング画面の表示
 $(function() {
   var h = $(window).height();
